@@ -7,7 +7,9 @@ return {
             require("configs.treesitter")
         end,
     },
-
+    {
+        import = "nvchad.blink.lazyspec"
+    },
     {
         "neovim/nvim-lspconfig",
         event = { "BufReadPre", "BufNewFile" },
