@@ -1,4 +1,5 @@
-local lspconfig = package.loaded["lspconfig"]
+-- Get the server list from the global variable set in lspconfig.lua
+local servers = vim.g.configured_lsp_servers or {}
 
 -- List of servers to ignore during install
 local ignore_install = {}
@@ -15,7 +16,7 @@ end
 
 -- Build a list of lsp servers to install minus the ignored list.
 local all_servers = {}
-for _, s in ipairs(lspconfig.servers) do
+for _, s in ipairs(servers) do
     if not table_contains(ignore_install, s) then
         table.insert(all_servers, s)
     end
